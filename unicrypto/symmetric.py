@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from unicrypto import get_preferred_cipher
 import enum
 
 class cipherMODE(enum.Enum):
@@ -76,9 +75,3 @@ def deriveKey(baseKey):
 	key1 = [key[0] , key[1] , key[2] , key[3] , key[0] , key[1] , key[2]]
 	key2 = [key[3] , key[0] , key[1] , key[2] , key[3] , key[0] , key[1]]
 	return expand_DES_key(bytes(key1)),expand_DES_key(bytes(key2))
-
-
-DES = get_preferred_cipher('DES')
-TDES = get_preferred_cipher('TDES')
-AES = get_preferred_cipher('AES')
-RC4 = get_preferred_cipher('RC4')
