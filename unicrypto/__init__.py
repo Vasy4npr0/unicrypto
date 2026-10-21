@@ -9,21 +9,14 @@ def import_from(module, name):
 	module = __import__(module, fromlist=[name])
 	return getattr(module, name)
 
-pref_to_module = {
-	'mbedtls' : 'mbedtls',
-	'cryptography' : 'cryptography',
-	'pyCryptodomex': 'Cryptodome',
-	# see https://github.com/Legrandin/pycryptodome/blob/master/Changelog.rst#30-24-june-2014
-	'pyCryptodome': 'Crypto.Cipher.Salsa20',
-	'pyCrypto' : 'Crypto.Random.OSRNG'
-}
+pref_to_module = {}
 
 # preferred modules for each cipher, in order of preferance
 preftable = {
-	'DES' : ['pyCryptodomex','pyCryptodome','cryptography','pyCrypto','mbedtls','pure'],
-	'TDES': ['pyCryptodomex','pyCryptodome','cryptography','pyCrypto','mbedtls','pure'],
-	'AES' : ['pyCryptodomex','pyCryptodome','cryptography','pyCrypto','mbedtls','pure'],
-	'RC4' : ['pyCryptodomex','pyCryptodome','cryptography','pyCrypto','mbedtls','pure'],
+	'DES' : ['pure'],
+	'TDES': ['pure'],
+	'AES' : ['pure'],
+	'RC4' : ['pure'],
 }
 
 available_modules = {
